@@ -1,0 +1,15 @@
+{% extends "Schedule_Map/layout.html" %}
+
+{% block title %}
+    {{ grade }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ grade }}</h1>
+    <form autocomplete="off" action="{% url 'Schedule_Map:setSched' grade %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+    <a href="{% url 'Schedule_Map:index' %}">Home</a>
+{% endblock %}

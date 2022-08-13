@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Schedule</title>
+    </head>
+    <body>
+        <span>
+            <a href="{% url 'Schedule_Map:setSched' ninth %}">Freshman</a>
+            {% if 9thComp %}
+            <a href="{% url 'Schedule_Map:setSched' tenth %}">Sophomore</a>
+            {% else %}
+            {% endif %}
+            {% if 10thComp %}
+            <a href="{% url 'Schedule_Map:setSched' eleventh %}">Junior</a>
+            {% else %}
+            {% endif %}
+            {% if 11thComp %}
+            <a href="{% url 'Schedule_Map:setSched' twelfth %}">Senior</a>
+            {% else %}
+            {% endif %}
+        </span>
+        <table>
+            <tr>
+                <th>Option ii</th>
+                <th>Grade</th>
+                <th>Math</th>
+                <th>World Language</th>
+                <th>Science</th>
+                <th>Language Arts</th>
+                <th>Social Studies</th>
+                <th>Elective</th>
+                <th>Physical Education</th>
+                <th>Study Hall</th>
+            </tr>
+            <tr>
+                
+                {% for key,value in freshman.items %}
+                    {% if key != "Comp" %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+                    {% if key == "opt" %}
+                        <th>9th grade</th>
+                    {% endif %}
+                {% empty %}
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for key,value in sophomore.items %}
+                    {% if key != "Comp" %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+                    {% if key == "opt" %}
+                        <th>10th grade</th>
+                    {% endif %}
+                {% empty %}
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% endfor %}
+            </tr>
+            <tr>
+                
+                {% for key,value in junior.items %}
+                    {% if key != "Comp" %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+                    {% if key == "opt" %}
+                        <th>11th grade</th>
+                    {% endif %} 
+                {% empty %}
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% endfor %}
+            </tr>
+            <tr>
+                
+                {% for key,value in senior.items %}
+                    <td>{{ value }}</td>
+                    {% if key == "opt" %}
+                        <th>12th grade</th>
+                    {% endif %}
+                {% empty %}
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% endfor %}
+            </tr>
+        </table>
+    </body>
+</html> 
